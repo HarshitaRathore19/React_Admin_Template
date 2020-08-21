@@ -1,0 +1,16 @@
+
+
+.login {
+ width: 30%;
+ height: 300px;
+ margin: 50px 50px 50px 220px;
+ padding: 20px;
+ border-width: 1px;
+ border-color: rgb(204, 198, 198);
+ border-style: solid;
+ background-color: white;
+ border-radius: 5px;
+ box-shadow: 5px 5px 5px rgb(199, 212, 212);;
+
+}
+

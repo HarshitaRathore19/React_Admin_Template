@@ -1,0 +1,19 @@
+.about {
+    background-color: #e2eaf7;
+    width: 100%;
+    padding: 20px 20px 20px 50px;
+    text-align: center;
+}
+
+.head{
+    background-color: rgb(115, 197, 218);
+    height: 50px;
+    margin: 20px;
+}
+
+.head2{
+    /* background-color: rgb(195, 231, 240); */
+    height: 180px;
+    margin: 20px;
+    padding: 25px;
+}

@@ -1,0 +1,43 @@
+.tbl {
+    width: 100%;
+    background-color: white;
+    margin: 4px;
+    padding: 5px;
+    box-shadow: 3px 3px 5px #bdd6e4ef;
+    border-radius: 5px;
+
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: center;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even){background-color: #f2f2f2}
+  
+  th {
+    background-color: rgb(132, 169, 238);
+    color: white;
+  }
+  
+  img {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  
+  td {
+    border-bottom: 1px solid #ddd;
+  }
+
+
+
