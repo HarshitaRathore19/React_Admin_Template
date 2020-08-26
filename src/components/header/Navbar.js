@@ -1,22 +1,39 @@
+//import react hooks
 import React,{useState, useEffect} from 'react';
+
+//import semantic ui elements
 import { Menu,Icon } from 'semantic-ui-react'
+
+//impor Link from react-router-dom
 import { Link } from "react-router-dom"
-import "./navbar.css"
+
+//import logout action
 import {logout} from "../../actions/index"
+
+//import connect method from redux
 import { connect } from 'react-redux'
+
+//import css file
 import "./navbar.css"
-//import PrivateRoute from "../../routers/PrivateRoute"
+
+//import Private component for conditional rendering
+import PrivateComp from "../../routers/privateComp"
 
 
 
-const Navbar = (props) => {
 
-  const token = sessionStorage.getItem("token")
+//make Menu.Item private
+const MenuItem = PrivateComp(Menu.Item);
 
-    
-    return (
-        <div className="nav"> 
-        {console.log('navbar comp')}
+
+
+//Navbar component
+const Navbar = (props) => 
+{
+
+
+  return (
+          <div className="nav"> 
             <Menu pointing stackable size="huge" fixed="top" className="body.pushable>.pusher">
               <Menu.Item 
                 header
@@ -24,21 +41,33 @@ const Navbar = (props) => {
                 position="left"
                 name='Admin App'
               />
-              {token?<Menu.Item 
+              <MenuItem 
                 position="right"
                 as={Link}
                 to="/"
                 name='Logout'
                 onClick={props.logout}
+                token={props.token}
               >logout
                 <Icon name="sign-out"/>
-                </Menu.Item>:null}
+              </MenuItem>
             </Menu>
-        </div>
+          </div>
     )
 }
 
 
 
 
-export default connect(null,{logout})(Navbar)
+//mapStateToProps function
+const mapStateToProps = (state,ownProps) => 
+{
+  return {
+           token: state.adminReducer.token
+         }
+}
+
+
+
+//export Navbar Component
+export default connect(mapStateToProps,{logout})(Navbar)

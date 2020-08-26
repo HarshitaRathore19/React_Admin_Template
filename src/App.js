@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import Main from "./routers/Main"
 
-function App() {
+function App(props) {
   return (
     <div className="App">
      <Main/>

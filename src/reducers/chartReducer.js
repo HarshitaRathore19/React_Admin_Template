@@ -1,13 +1,17 @@
+//import action types
 import { actionTypes } from "../constants"
 
 
 
-const initState = {
+const initState = 
+{
     chartData: []
 }
 
-export default function chartReducer(state= initState, action){
-    switch(action.type){
+export default function chartReducer(state= initState, action)
+{
+    switch(action.type)
+    {
         case actionTypes.GET_CHARTDATA:
             return {
                 ...state,

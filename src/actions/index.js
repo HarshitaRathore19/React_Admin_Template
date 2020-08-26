@@ -1,66 +1,84 @@
+
+// action types
 import { actionTypes } from "../constants"
+
+//history
 import history from '../common/history';
+
+//axios
 import axios from "axios";
 
 
-export const login = (userData) => {
-    console.log(userData)
-    const token = sessionStorage.setItem("token","asdfghjkllkjhgfdsa")
-   history.push("/dashboard")
+
+
+//user login action
+export const login = (userData) =>
+ {
+    sessionStorage.setItem("token","asdfghjkllkjhgfdsa")
+    history.push("/dashboard")
     return (dispatch) => {
        return dispatch({
-           type: actionTypes.USER_LOGIN,
-           payload: token
-       })
+                       type: actionTypes.USER_LOGIN,
+                       payload: true
+                       })
        
-   }
-}
+                         }
+ }
 
-export const logout = () => {
-    const emptyToken = sessionStorage.removeItem("token")
+
+
+
+//user logout action
+ export const logout = () =>
+{
+    sessionStorage.removeItem("token")
     return (dispatch) => {
         return dispatch({
-            type: actionTypes.USER_LOGOUT,
-            payload: emptyToken
-        })
+                          type: actionTypes.USER_LOGOUT,
+                          payload: false
+                        })
        
-    }
-    
+                        }
 }
 
 
 
-export const getEmp = () => {
+
+//action for employee data table
+export const getEmp = () => 
+{
     return (dispatch) => {
         return axios.get(`https://reqres.in/api/users`)
         .then(response => {
             console.log(response.data.data)
             dispatch({
-                type: actionTypes.GET_EMP,
-                payload: response.data.data
-            })
-        })
+                       type: actionTypes.GET_EMP,
+                       payload: response.data.data
+                     })
+             })
         .catch((err) => {
             console.log(err)
         })
-    }
+                         }
 }
 
 
 
 
-export const getChartData = () => {
+//action for chart data
+export const getChartData = () =>
+{
     return (dispatch) => {
         return axios.get(`http://dummy.restapiexample.com/api/v1/employees`)
         .then(response => {
             console.log(response.data.data)
             dispatch({
-                type: actionTypes.GET_CHARTDATA,
-                payload: response.data.data
-            })
+                       type: actionTypes.GET_CHARTDATA,
+                       payload: response.data.data
+                     })
         })
         .catch((err) => {
             console.log(err)
         })
-    }
+                         }
 }

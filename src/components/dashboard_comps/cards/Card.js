@@ -1,25 +1,36 @@
+//import react hooks
 import React, { useEffect } from "react"
+
+//import semantic ui elements
 import { Card, Icon, Image, Grid } from 'semantic-ui-react'
+
+//import connect from redux
 import { connect } from "react-redux"
+
+//import action for cards data
 import {getEmp} from "../../../actions/index"
+
+//import css file
 import './cards.css';
 
 
 
 
-const Cards = (props) => {
+//Cards component
+const Cards = (props) => 
+{
 
     useEffect(()=> {
       getEmp()
     },[])
 
-    return (
+  return (
      <> 
-      <Grid columns={3} className="ui centered grid">
-            {props.employee&&props.employee.map((item) => {
-                return <div compact className="box">
-                 <Grid.Column>
-                   <Card>
+        <Grid columns={3} className="ui centered grid">
+          {props.employee&&props.employee.map((item) => {
+             return <div compact className="box">
+                <Grid.Column>
+                  <Card>
                      <Image src={item.avatar} wrapped ui={false} />
                      <Card.Content>
                         <Card.Header>{item.first_name}</Card.Header>
@@ -36,17 +47,20 @@ const Cards = (props) => {
                            22 Friends
                         </a>
                      </Card.Content>
-                   </Card>
-                 </Grid.Column>
+                  </Card>
+                </Grid.Column>
               </div>
         
             })}
-            </Grid>
+        </Grid>
       </>     
       
     )
 }
 
+
+
+//mapStateToProps function
 const mapStateToProps = (state,ownProps) => {
   console.log(state.empReducer.employee)
   return{
@@ -55,6 +69,8 @@ const mapStateToProps = (state,ownProps) => {
 }
 
 
+
+//export cards component
 export default connect(mapStateToProps)(Cards)
 
 

@@ -1,17 +1,29 @@
+//import react hooks
 import React,{useEffect} from 'react';
+
+//import components
 import Navbar from '../components/header/Navbar'
 import Routes from './Routes';
-import { Router,withRouter } from 'react-router-dom';
-import  history  from '../common/history'
 import Fixed from "./Fixed"
 
+//import Router 
+import { Router } from 'react-router-dom';
 
-const Main = () => {
+//import history
+import  history  from '../common/history'
+
+
+
+//Main comp
+const Main = (props) => 
+{
     return (
-        <Router history={history} >
-          <Fixed />
-        </Router>
-    )
+             <Router history={history} >
+                <Fixed />
+             </Router>
+           )
 }
 
+
+//export main comp
 export default Main

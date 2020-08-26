@@ -1,27 +1,38 @@
+//import react hooks
 import React,{useState} from "react"
+
+//import semantic ui 
 import { Menu,Sidebar,Segment,Icon,Image,Header } from 'semantic-ui-react'
+
+//import Link from react-router-dom
 import { Link } from "react-router-dom"
+
+//import css
 import "./sidebar.css"
 
 
-const Sidebars = () => {
+
+//Sidebar component
+const Sidebars = () => 
+{
     const [activeItem,setActiveItem] = useState("Dashboard")
 
     const handleItemClick = (e, { name }) => setActiveItem(name)
 
-    return (
+  return(
+        
         <div className="sidebar">
-        <Sidebar
-          direction="left"
-          as={Menu}
-          animation='slide out'
-          icon='labeled'
-          inverted
-          vertical
-          visible
-          width='thin'
-          className="cls"
-        >
+          <Sidebar
+            direction="left"
+            as={Menu}
+            animation='slide out'
+            icon='labeled'
+            inverted
+            vertical
+            visible
+            width='thin'
+            className="cls"
+          >
             <Menu.Item 
               className="sidebar"
               as={Link}
@@ -53,12 +64,13 @@ const Sidebars = () => {
               <Icon name='setting' />
                 Settings
             </Menu.Item>
-        </Sidebar>
-
+          </Sidebar>
         </div>
     )
 }
 
+
+//export sidebar
 export default Sidebars
 
 

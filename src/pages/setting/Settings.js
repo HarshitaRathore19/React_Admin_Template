@@ -1,5 +1,9 @@
 import React from "react"
+
+//import css
 import "./settings.css"
+
+//import semantic ui elements
 import {
     Button,
     Divider,
@@ -15,7 +19,11 @@ import {
     Table,
   } from 'semantic-ui-react'
 
-const Settings = () => {
+
+
+//Settings component  
+const Settings = () => 
+{
     return (
         <div className="settings">
             <Grid container style={{ padding: '5em 0em' }}>
@@ -501,4 +509,6 @@ const Settings = () => {
     )
 }
 
+
+//export settings component
 export default Settings
